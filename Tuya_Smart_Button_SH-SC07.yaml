@@ -1,11 +1,11 @@
 blueprint:
-  name: Zigbee2MQTT - Tuya Smart Button SH-SC07
-  description: Tuya Zigbee 1-Button Scene Switch
+  name: Tuya Smart Button
+  description: Zigbee 1-Button Scene Switch
   domain: automation
   input:
     switch:
-      name: Tuya Smart Button
-      description: Zigbee2MQTT Name SH-SC07
+      name: Button scene switch (SH-SC07)
+      description: Zigbee2MQTT Name button
       selector:
         entity:
           domain: sensor
