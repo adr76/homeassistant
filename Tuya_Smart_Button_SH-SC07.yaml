@@ -3,13 +3,11 @@ blueprint:
   description: Tuya Zigbee 1-Button Scene Switch
   domain: automation
   input:
-    mqtt_entity:
+    switch:
       description: Zigbee2MQTT Name SH-SC07
       name: Name
     base_topic:
       description: The base topic as defined in the zigbee2mqtt config
-      default: zigbee2mqtt
-      name: Base Topic
       selector:
         entity:
           domain: sensor
