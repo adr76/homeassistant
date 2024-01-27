@@ -15,17 +15,14 @@ blueprint:
       name: Event | Single Press
       description: Action to run on single press in event mode
       default: []
-      selector:
-        action: {}
+      action: {}
     event_double:
       name: Event | Double Press
       description: Action to run on double press in event mode
       default: []
-      selector:
-        action: {}
+      action: {}
     event_hold:
       name: Event | Hold Press
       description: Action to run on hold press in event mode
       default: []
-      selector:
-        action: {}
+      action: {}
