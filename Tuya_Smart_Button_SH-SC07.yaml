@@ -4,10 +4,8 @@ blueprint:
   domain: automation
   input:
     switch:
+      name: Tuya Smart Button
       description: Zigbee2MQTT Name SH-SC07
-      name: Name
-    base_topic:
-      description: The base topic as defined in the zigbee2mqtt config
       selector:
         entity:
           domain: sensor
