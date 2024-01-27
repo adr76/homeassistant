@@ -1,60 +1,31 @@
 blueprint:
-  name: Tuya_Smart_Button
-  description: Automate your Tuya 1-Button Scene Switch using ZHA events.
+  name: Zigbee2MQTT - Smart_Button
+  description: Tuya Zigbee 1-Button Scene Switch
   domain: automation
   input:
-    tuya_1button_scene_switch:
-      name: Tuya 1-Button Scene Switch
-      description: Tuya 1-Button Scene Switch to use
-      selector:
-        device:
-          integration: zha
-          manufacturer:
-          model:
-          multiple: false
-    button_one_short_press:
-      name: Button, single press
-      description: Action to run on button single press
+    mqtt_entity:
+      description: The "friendly" SH-SC07 device name as is registered in zigbee2mqtt
+      name: Name
+    base_topic:
+      description: The base topic as defined in the zigbee2mqtt config
+      default: zigbee2mqtt
+      name: Base Topic
+      
+    event_single:
+      name: Event | Single Press
+      description: Action to run on single press in event mode
       default: []
       selector:
         action: {}
-    button_one_double_press:
-      name: Button, double press
-      description: Action to run on button double press
+    event_double:
+      name: Event | Double Press
+      description: Action to run on double press in event mode
       default: []
       selector:
         action: {}
-    button_one_long_press:
-      name: Button, long press
-      description: Action to run on button long press
+    event_hold:
+      name: Event | Hold Press
+      description: Action to run on hold press in event mode
       default: []
       selector:
         action: {}
-  source_url: https://github.com/adr76/homeassistant/blob/main/Tuya_TS0041_Smart_Button.yaml
-mode: restart
-max_exceeded: silent
-trigger:
-- platform: event
-  event_type: zha_event
-  event_data:
-    device_id: !input tuya_1button_scene_switch
-action:
-- variables:
-    command: '{{ trigger.event.data.command }}'
-    endpoint_id: '{{ trigger.event.data.endpoint_id }}'
-- choose:
-  - conditions: '{{ command == ''remote_button_short_press'' }}'
-    sequence:
-    - choose:
-      - conditions: '{{ endpoint_id == 1 }}'
-        sequence: !input button_one_short_press
-  - conditions: '{{ command == ''remote_button_double_press'' }}'
-    sequence:
-    - choose:
-      - conditions: '{{ endpoint_id == 1 }}'
-        sequence: !input button_one_double_press
-  - conditions: '{{ command == ''remote_button_long_press'' }}'
-    sequence:
-    - choose:
-      - conditions: '{{ endpoint_id == 1 }}'
-        sequence: !input button_one_long_press
