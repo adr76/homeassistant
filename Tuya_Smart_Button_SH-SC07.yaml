@@ -10,19 +10,26 @@ blueprint:
       description: The base topic as defined in the zigbee2mqtt config
       default: zigbee2mqtt
       name: Base Topic
+      selector:
+        entity:
+          domain: sensor
+          integration: mqtt
       
     event_single:
       name: Event | Single Press
       description: Action to run on single press in event mode
       default: []
-      action: {}
+      selector:
+        action: {}
     event_double:
       name: Event | Double Press
       description: Action to run on double press in event mode
       default: []
-      action: {}
+      selector:
+        action: {}
     event_hold:
       name: Event | Hold Press
       description: Action to run on hold press in event mode
       default: []
-      action: {}
+      selector:
+        action: {}
