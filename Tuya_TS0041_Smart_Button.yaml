@@ -4,7 +4,7 @@ blueprint:
   domain: automation
   input:
     mqtt_entity:
-      description: SH-SC07 device name as is registered in zigbee2mqtt
+      description: Tuya Smart Button SH-SC07
       name: Name
     base_topic:
       description: The base topic as defined in the zigbee2mqtt config
