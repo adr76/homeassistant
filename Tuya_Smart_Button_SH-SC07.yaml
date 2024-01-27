@@ -29,3 +29,26 @@ blueprint:
       default: []
       selector:
         action: null
+
+mode: queued
+
+trigger:
+  - platform: state
+    entity_id: !input switch
+
+condition:
+  - "{{ trigger.to_state.state != '' }}"
+
+action:
+  - variables:
+      command: "{{ trigger.to_state.state }}"
+  - choose:
+      - conditions:
+          - "{{ command == 'single' }}"
+        sequence: !input event_single
+      - conditions:
+          - "{{ command == 'double' }}"
+        sequence: !input event_double
+      - conditions:
+          - "{{ command == 'hold' }}"
+        sequence: !input event_hold
