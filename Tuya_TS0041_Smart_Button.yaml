@@ -1,5 +1,5 @@
 blueprint:
-  name: Tuya_Smart_Button_SH-SC07
+  name: Tuya_Smart_Button
   description: Automate your Tuya 1-Button Scene Switch using ZHA events.
   domain: automation
   input:
@@ -9,8 +9,8 @@ blueprint:
       selector:
         device:
           integration: zha
-          manufacturer:  _TZ3000_mrpevh8p
-          model: TS0041
+          manufacturer:
+          model:
           multiple: false
     button_one_short_press:
       name: Button, single press
